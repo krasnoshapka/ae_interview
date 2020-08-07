@@ -1,12 +1,12 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
-import { GlobalProvider } from './context/GlobalState';
 import Header from './components/Header';
 import Photo from "./components/Photo";
 import PhotoList from "./components/PhotoList";
 import './App.css';
+import {connect} from "react-redux";
+import {PictureSelect} from "./redux/actions";
 
 const theme = createMuiTheme({
   palette: {
@@ -19,20 +19,21 @@ const theme = createMuiTheme({
   },
 });
 
-function App() {
+const App = ({selected, ...props}) => {
+  // Very simple routing for now
   return (
     <MuiThemeProvider theme={theme}>
       <Header />
-      <GlobalProvider>
-        <BrowserRouter>
-          <Switch>
-            <Route path="/" exact component={PhotoList} />
-            <Route path="/photo" exact component={Photo} />
-          </Switch>
-        </BrowserRouter>
-      </GlobalProvider>
+      {
+        !selected ? (<PhotoList />) : (<Photo />)
+      }
     </MuiThemeProvider>
   );
 }
 
-export default App;
+export default connect(
+  state => ({
+    selected: state.selected,
+  }),
+  { PictureSelect },
+)(App);
