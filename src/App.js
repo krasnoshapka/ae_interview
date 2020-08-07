@@ -6,7 +6,6 @@ import Photo from "./components/Photo";
 import PhotoList from "./components/PhotoList";
 import './App.css';
 import {connect} from "react-redux";
-import {PictureSelect} from "./redux/actions";
 
 const theme = createMuiTheme({
   palette: {
@@ -25,7 +24,7 @@ const App = ({selected, ...props}) => {
     <MuiThemeProvider theme={theme}>
       <Header />
       {
-        !selected ? (<PhotoList />) : (<Photo />)
+        !selected ? (<PhotoList />) : (<Photo picture={selected}/>)
       }
     </MuiThemeProvider>
   );
@@ -35,5 +34,5 @@ export default connect(
   state => ({
     selected: state.selected,
   }),
-  { PictureSelect },
+  {},
 )(App);

@@ -1,9 +1,23 @@
 import {combineReducers} from "redux";
 
-const PicturesReducer = (state = null, action) => {
+const PicturesReducer = (state = [], action) => {
   switch (action.type) {
     case 'PICTURES_SET':
-      return action.payload;
+      let pictures = [...state];
+      action.payload.forEach((el) => {
+        if (!pictures.find(item => item.id == el.id)) {
+          pictures.push(el);
+        }
+      });
+
+      return pictures;
+    case 'PICTURE_SET':
+      return state.map((pic) => {
+        if (pic.id == action.payload.id) {
+          return action.payload;
+        }
+        return pic;
+      });
     default:
       return state;
   }
