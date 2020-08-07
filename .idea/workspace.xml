@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3e87361-d45a-4c4c-91fc-ff7617f0d8b0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,11 +37,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="js.linters.configure.manually.selectedeslint" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../online-stores-ssr" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="C:\Users\vkr\jysk\projects\ae_interview\node_modules\eslint" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -45,7 +58,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1596782001258</updated>
-      <workItem from="1596782002322" duration="774000" />
+      <workItem from="1596782002322" duration="1402000" />
+      <workItem from="1596783418984" duration="265000" />
+      <workItem from="1596783703560" duration="83000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit.">
       <created>1596782538391</created>
@@ -54,7 +69,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596782538391</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Installed react-router and material-ui.">
+      <created>1596782826419</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1596782826419</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -64,6 +86,25 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Initial commit." />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit." />
+    <MESSAGE value="Installed react-router and material-ui." />
+    <option name="LAST_COMMIT_MESSAGE" value="Installed react-router and material-ui." />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="555" y="242" width="799" height="525" key="#ESLint" timestamp="1596783785760">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="555" y="242" width="799" height="525" key="#ESLint/1680.-120.1536.832/0.0.1680.1010@0.0.1680.1010" timestamp="1596783785760" />
+    <state x="318" y="110" width="1040" height="826" key="CommitChangelistDialog2" timestamp="1596782825254">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="318" y="110" width="1040" height="826" key="CommitChangelistDialog2/1680.-120.1536.832/0.0.1680.1010@0.0.1680.1010" timestamp="1596782825254" />
+    <state x="92" y="92" width="1496" height="826" key="DiffContextDialog" timestamp="1596782853551">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="92" y="92" width="1496" height="826" key="DiffContextDialog/1680.-120.1536.832/0.0.1680.1010@0.0.1680.1010" timestamp="1596782853551" />
+    <state x="341" y="150" key="SettingsEditor" timestamp="1596783712191">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="341" y="150" key="SettingsEditor/1680.-120.1536.832/0.0.1680.1010@0.0.1680.1010" timestamp="1596783712191" />
   </component>
 </project>
