@@ -45,7 +45,7 @@ const PhotoList = ({classes, pictures, PicturesSet, PictureSelect, PictureSet, .
           .catch((error) => {
             if (error.response.status === 401) {
               localStorage.removeItem('AuthToken');
-              props.history.push('/');
+              window.location.href = '/';
             }
             console.log(error);
           });
@@ -73,7 +73,7 @@ const PhotoList = ({classes, pictures, PicturesSet, PictureSelect, PictureSet, .
           .catch((error) => {
             if (error.response.status === 401) {
               localStorage.removeItem('AuthToken');
-              props.history.push('/');
+              window.location.href = '/';
             }
             console.log(error);
           });
