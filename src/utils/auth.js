@@ -11,7 +11,7 @@ const authMiddleWare = () => {
         })
         .then((response) => {
           localStorage.setItem('AuthToken', `Bearer ${response.data.token}`);
-          resolve();
+          resolve(response.data.token);
         })
         .catch((error) => {
           if (error.response.status === 401) {
@@ -20,7 +20,7 @@ const authMiddleWare = () => {
           reject();
         });
     } else {
-      resolve();
+      resolve(authToken);
     }
   });
 }

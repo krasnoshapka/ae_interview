@@ -29,8 +29,7 @@ const PhotoList = ({classes, pictures, PicturesSet, PictureSelect, PictureSet, .
   useEffect(() => {
     if (pictures.length < (page * resultsNum)) {
       // Fetch next page
-      authMiddleWare().then(() => {
-        const authToken = localStorage.getItem('AuthToken');
+      authMiddleWare().then((authToken) => {
         axios.defaults.headers.common = {Authorization: `${authToken}`};
         axios
           .get(`${apiURL}/images`, {
@@ -61,8 +60,7 @@ const PhotoList = ({classes, pictures, PicturesSet, PictureSelect, PictureSet, .
       PictureSelect(picture);
     } else {
       // Fetch picture data from server
-      authMiddleWare().then(() => {
-        const authToken = localStorage.getItem('AuthToken');
+      authMiddleWare().then((authToken) => {
         axios.defaults.headers.common = {Authorization: `${authToken}`};
         axios
           .get(`${apiURL}/images/${id}`)
