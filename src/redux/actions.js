@@ -7,8 +7,7 @@ export const PictureSet = (picture) => ({
   type: 'PICTURE_SET',
   payload: picture,
 });
-
-export const PictureSelect = (picture) => ({
-  type: 'PICTURE_SELECT',
-  payload: picture,
+export const PageSet = (page) => ({
+  type: 'PAGE_SET',
+  payload: page,
 });

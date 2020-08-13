@@ -23,10 +23,10 @@ const PicturesReducer = (state = [], action) => {
   }
 };
 
-const PictureSelectReducer = (state = null, action) => {
+const PageReducer = (state = 1, action) => {
   switch (action.type) {
-    case 'PICTURE_SELECT':
-      return action.payload;
+    case 'PAGE_SET':
+      return parseInt(action.payload);
     default:
       return state;
   }
@@ -34,5 +34,5 @@ const PictureSelectReducer = (state = null, action) => {
 
 export default combineReducers({
   pictures: PicturesReducer,
-  selected: PictureSelectReducer
+  page: PageReducer,
 });

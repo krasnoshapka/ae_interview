@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import { connect } from 'react-redux';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
+import {Link} from "react-router-dom";
 import withStyles from '@material-ui/core/styles/withStyles';
 import authMiddleWare from '../utils/auth';
 import axios from 'axios';
 import {apiURL, resultsNum} from '../constants/config';
-import {PicturesSet, PictureSelect, PictureSet} from '../redux/actions';
+import {PicturesSet, PageSet} from '../redux/actions';
 
 const styles = (theme) => ({
   root: {
@@ -21,10 +21,8 @@ const styles = (theme) => ({
   },
 });
 
-const PhotoList = ({classes, pictures, PicturesSet, PictureSelect, PictureSet, ...props}) => {
+const PhotoList = ({classes, page, pictures, PicturesSet, PageSet, ...props}) => {
   const [hasMore, setHasMore] = useState(true);
-  // TODO: save page in redux in order to stay on the same page
-  const [page, setPage] = useState(1);
 
   useEffect(() => {
     if (pictures.length < (page * resultsNum)) {
@@ -52,43 +50,6 @@ const PhotoList = ({classes, pictures, PicturesSet, PictureSelect, PictureSet, .
     }
   }, [page]);
 
-  const handleSelect = (event, id) => {
-    event.preventDefault();
-    const picture = pictures.find(item => item.id == id);
-    if (picture && picture['full_picture']) {
-      // Get full data from redux
-      PictureSelect(picture);
-    } else {
-      // Fetch picture data from server
-      authMiddleWare().then((authToken) => {
-        axios.defaults.headers.common = {Authorization: `${authToken}`};
-        axios
-          .get(`${apiURL}/images/${id}`)
-          .then((response) => {
-            PictureSet(response.data);
-            PictureSelect(response.data);
-          })
-          .catch((error) => {
-            if (error.response.status === 401) {
-              localStorage.removeItem('AuthToken');
-              window.location.href = '/';
-            }
-            console.log(error);
-          });
-      });
-    }
-  }
-
-  const handleNext = (event) => {
-    event.preventDefault();
-    setPage(page+1);
-  }
-
-  const handlePrevious = (event) => {
-    event.preventDefault();
-    setPage(page-1);
-  }
-
   if (!pictures) {
     return (
       <div>Loading...</div>
@@ -99,9 +60,9 @@ const PhotoList = ({classes, pictures, PicturesSet, PictureSelect, PictureSet, .
         <CssBaseline />
         <Container maxWidth="lg">
           <GridList cellHeight={160} className={classes.gridList} cols={3}>
-            {pictures.slice((page -1) * resultsNum, page * resultsNum).map((picture) => (
+            {pictures.slice((page - 1) * resultsNum, page * resultsNum).map((picture) => (
               <GridListTile key={picture.id}>
-                <Link href="" onClick={(event) => handleSelect(event, picture.id)}>
+                <Link to={`/photo/${picture.id}`}>
                   <img src={picture.cropped_picture} />
                 </Link>
               </GridListTile>
@@ -109,15 +70,13 @@ const PhotoList = ({classes, pictures, PicturesSet, PictureSelect, PictureSet, .
           </GridList>
           <br />
           <div className="pagination">
-            {
-              page > 1 && (
+            {page > 1 && (
                 <React.Fragment>
-                  <Link src="" onClick={handlePrevious} >Previous</Link>...
+                  <Link to="/" onClick={() => PageSet(--page)}>Previous</Link>...
                 </React.Fragment>
-              )
-            }
+            )}
             {hasMore && (
-              <Link src="" onClick={handleNext} >Next</Link>
+              <Link to="/" onClick={() => PageSet(++page)}>Next</Link>
             )}
           </div>
         </Container>
@@ -129,6 +88,7 @@ const PhotoList = ({classes, pictures, PicturesSet, PictureSelect, PictureSet, .
 export default connect(
   state => ({
     pictures: state.pictures,
+    page: state.page
   }),
-  { PicturesSet, PictureSelect, PictureSet },
+  { PicturesSet, PageSet },
 )(withStyles(styles)(PhotoList));
